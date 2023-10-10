@@ -1,0 +1,33 @@
+{
+    "name": "reactjs",
+    "version": "1.0.0",
+    "description": "Make a Project Based on Live API's just like as Swiggy",
+    "scripts": {
+        "test": "jest",
+        "start": "parcel index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tushar1471/swiggy_clone.git"
+    },
+    "keywords": [
+        "Swiggy"
+    ],
+    "author": "Tushar Malhotra",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Tushar1471/swiggy_clone/issues"
+    },
+    "homepage": "https://github.com/Tushar1471/swiggy_clone#readme",
+    "dependencies": {
+        "parcel": "^2.9.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.16.0"
+    },
+    "devDependencies": {
+        "postcss": "^8.4.31",
+        "process": "^0.11.10",
+        "tailwindcss": "^3.3.3"
+    }
+}

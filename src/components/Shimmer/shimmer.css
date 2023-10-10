@@ -1,0 +1,70 @@
+.body_shimmer {
+    width: 62%;
+    height: 100%;
+    /* background-color: #f0f0f0; */
+    margin: 50px auto;
+    padding: 0 10px;
+}
+
+.body_shimmer>.shimmer_content {
+    color: rgb(44, 44, 44);
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.body_shimmer>.shimmer_filter_bar {
+    width: 100%;
+    height: 50px;
+    /* background-color: green; */
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body_shimmer>.shimmer_filter_bar>input {
+    border: none;
+    outline: none;
+    width: 40%;
+    height: 30px;
+    margin-right: 10px;
+    background-color: grey;
+    text-indent: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+.body_shimmer>.shimmer_filter_bar>input::placeholder {
+    color: white;
+}
+
+.body_shimmer>.shimmer_filter_bar>.shimmer_primary {
+    width: 60px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    height: 30px;
+    background-color: grey;
+    color: white;
+    border-radius: 5px;
+}
+
+.body_shimmer>.shimmer_card_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.body_shimmer>.shimmer_card_container>.shimmer_card {
+    width: 30%;
+    height: 290px;
+    background-color: rgb(238, 228, 228);
+    margin-bottom: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px black;
+}
