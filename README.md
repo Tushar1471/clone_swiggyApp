@@ -1,4 +1,5 @@
-# As we know while handling with class Based components we use a method componentDidMount which is bascially called after the component is mounted on a webpage. Also we know we can make API'S calls inside this method but why?
+# Some Questions about Class based component:-
+- As we know while handling with class Based components we use a method componentDidMount which is basically called after the component is mounted on a webpage. Also we know we can make API'S calls inside this method but why?
 
 - We can make an API call in Functional component using UseEffect.
 - Once we render the component on a webpage then make an API call and then again re-render it. This is the best practise for rendering your UI and make a better UX.
