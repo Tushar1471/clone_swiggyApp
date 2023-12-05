@@ -3,3 +3,4 @@
 /dist
 .postcssrc
 .tailwind.config.js
+/coverage

@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .hustle::-webkit-scrollbar {
+    width: 12px;
+    height: 3px;
+    /* background-color: yellow; */
+    scroll-behavior: smooth;
+  }
+  .hustle::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: gray;
+  }
+}

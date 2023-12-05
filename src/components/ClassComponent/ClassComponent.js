@@ -1,5 +1,6 @@
 import React from "react";
 import "./classComponent.css";
+// import UserContext from "../utlities/UserContext";
 
 class ClassComponent extends React.Component{
   constructor(props){
@@ -35,21 +36,22 @@ class ClassComponent extends React.Component{
     // console.log("Child Render");
     return(
       <>
-      <div className="class_container">
+      <div className="text-white">
         <h1>This is a class container.</h1>
         <h2>{name}</h2>
         <h3>{login}</h3>
         <h2>Count :{count}</h2>
-        <button onClick={()=>{
+        <button className="bg-black ml-2 rounded-lg p-1" onClick={()=>{
           this.setState({
             count :count + 1
           })
         }}>Increment</button>
-        <button onClick={()=>{
+        <button className="bg-black ml-2 rounded-lg p-1" onClick={()=>{
           this.setState({
             count :count - 1
           })
         }}>Decrement</button>
+        <img src={avatar_url} alt="Neaby Image" className="mx-auto p-2"/>
       </div>
       </>
     )

@@ -1,5 +1,4 @@
-import React,{lazy,Suspense} from "react";
-// import {lazy,Suspense} from "react";
+import React,{lazy,Suspense,useContext,useEffect,useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header/Header";
 import BodyLayout from "./src/components/BodyLayout/BodyLayout";
@@ -7,21 +6,41 @@ import BodyLayout from "./src/components/BodyLayout/BodyLayout";
 import {createBrowserRouter,RouterProvider,Outlet} from "react-router-dom";
 import SignForm from "./src/components/Sign_Form/SignForm";
 import Search from "./src/components/Search/Search";
-import Cart from "./src/components/Cart/Cart";
 import Help from "./src/components/Help/Help";
 import Offers from "./src/components/Offers/Offers";
 import Error from "./src/components/Error/Error";
 import RestaurantsMenu from "./src/components/RestaurantsMenu/RestaurantsMenu";
+import UserContext from "./src/components/utlities/UserContext.js";
+import appStore from "./src/components/utlities/AppStore/appStore.js";
+import { Provider } from "react-redux";
+import Cart from "./src/components/Cart/Cart";
 // import { Grocery } from "./src/components/Grocery/Grocery";
 
 
 const Grocery = lazy(()=>import("./src/components/Grocery/Grocery.js"));
 const AppLayout = ()=>{
+  // Some Authentication code to be written below
+  const [userName,setUserName] = useState();
+  useEffect(()=>{
+    // Make an API call to send username and password
+
+    const data = {
+      name:"Tushar Malhotra"
+    }
+    setUserName(data.name);
+  },[]);
+
+  const {loggedIn} = useContext(UserContext);
+  // console.log(loggedIn);
   return(
     <>
-    <Header/>
-    <Outlet/>
-    </>
+  <Provider store={appStore}>
+    <UserContext.Provider value={{loggedIn:userName,setUserName}}>
+      <Header/>
+      <Outlet/>
+    </UserContext.Provider>
+  </Provider>
+      </>
   )
 }
 

@@ -1,6 +1,7 @@
 import "./search.css";
 import ClassComponent from "../ClassComponent/ClassComponent";
 import React from"react";
+import UserContext from "../utlities/UserContext";
 
 
 class Search extends React.Component{
@@ -18,8 +19,20 @@ class Search extends React.Component{
     // console.log("Parent Render");
     return(
       <>
-      <div className="search_container">
-        <h1>Search bar is here</h1>
+      <div className="mt-24 bg-slate-600 text-center">
+        <h1 className="text-3xl font-bold text-white">Search bar is here</h1>
+        <hr/>
+        <div>
+          LoggedIn User:
+          <UserContext.Consumer>
+            {({loggedIn,signUp})=>(
+            <>
+            <h1>{loggedIn}</h1>
+            <p>{signUp}</p>
+            </>
+            )}
+          </UserContext.Consumer>
+        </div>
         <ClassComponent name={"Tushar Malhotra"} occupation={"MERN Stack Developer"}/>
       </div>
       </>
