@@ -2,12 +2,13 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "../CartSlice/cartSlice";
+import bannerReducer from "../bannerSlice.js";
 
 const appStore = configureStore({
-  // This is a big store reducer consisting of small slice reducers.
-reducer:{
-  cart:cartReducer,
-}
+    reducer: {
+        cart: cartReducer,
+        cards: bannerReducer,
+    }
 });
 
 export default appStore;

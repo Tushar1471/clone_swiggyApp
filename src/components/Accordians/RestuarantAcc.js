@@ -1,29 +1,36 @@
 // import  {useContext}  from "react";
 import MenuList from "../ItemLists/MenuList";
 
-const RestuarantAcc = ({data,itemCards,showIndex,setShowIndex,index})=>{
+const RestuarantAcc = ({ data, itemCards, showIndex, setShowIndex, index }) => {
   const handleToggle = () => {
-  //   console.log("Clicked Index:", index);
-  // console.log("Current showIndex:", showIndex);
     setShowIndex((prevIndex) => (prevIndex === index ? null : index));
   };
-  return(
+  return (
     <>
-   <div className="w-8/12 bg-slate-50 z-20 p-3 mx-auto flex justify-between cursor-pointer shadow-lg" onClick={handleToggle}>
-   <span className="text-black text-xl font-bold">{data.title}({itemCards.length})</span>
-   <span> <i className={`fa ${showIndex === index ? 'fa-caret-up' : 'fa-caret-down'}`}></i>
+      <div className="w-7/12 border-t-[2px] mx-auto"></div>
+      <div
+        className="w-7/12  z-20 px-3 py-3 mx-auto flex justify-between cursor-pointer "
+        onClick={handleToggle}
+      >
+        <span className="text-black text-lg font-bold">
+          {data.title}({itemCards.length})
         </span>
-   </div>
-   {showIndex === index  && <MenuList key={data.type}itemCards={itemCards}/>}
-   <br/>
-   {/* <Accordion/> */}
-   </>
-  )
-}
+        {showIndex === index ? (
+          <span className="material-symbols-outlined">keyboard_arrow_up</span>
+        ) : (
+          <span className="material-symbols-outlined">expand_more</span>
+        )}
+      </div>
+      <div className="w-full h-full relative -top-4">
+        {showIndex === index && (
+          <MenuList key={data.type} itemCards={itemCards} />
+        )}
+      </div>
+      <div className="w-7/12 border-b-[8px] mx-auto"></div>
+    </>
+  );
+};
 
 export default RestuarantAcc;
-
-
-
 
 // {itemCards.map(items=><li key={items.card.info.id} className="list-none text-black text-lg">{items.card.info.name} - &#8377;{items.card.info.finalPrice / 100 || items.card.info.price / 100 || items.card.info.defaultPrice / 100}</li>)}

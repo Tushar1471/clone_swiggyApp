@@ -5,8 +5,8 @@
     "scripts": {
         "test": "jest",
         "start": "parcel index.html",
-        "build":"parcel build index.html",
-        "watch-test":"jest --watch"
+        "build": "parcel build index.html",
+        "watch-test": "jest --watch"
     },
     "repository": {
         "type": "git",
@@ -22,6 +22,8 @@
     },
     "homepage": "https://github.com/Tushar1471/swiggy_clone#readme",
     "dependencies": {
+        "@headlessui/react": "^1.7.17",
+        "@heroicons/react": "^2.1.1",
         "@reduxjs/toolkit": "^1.9.7",
         "parcel": "^2.9.3",
         "random-token": "^0.0.8",

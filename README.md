@@ -1,4 +1,5 @@
 # Some Questions about Class based component:-
+
 - As we know while handling with class Based components we use a method componentDidMount which is basically called after the component is mounted on a webpage. Also we know we can make API'S calls inside this method but why?
 
 - We can make an API call in Functional component using UseEffect.
@@ -111,3 +112,14 @@ As we see we create multiple number of accordions containing MenuList and the st
   -Install @babel/preset-react to make JSX work in test cases.
   -Include @babel/preset-react inside my babel config.
   -Install @testing-library/jest-dom
+
+  <p className=" w-5/12 h-10">
+            <input
+              type="text"
+              className="w-full  h-full border border-black text-sm font-bold"
+              value={loggedIn}
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
+            />
+          </p>
