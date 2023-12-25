@@ -1,13 +1,27 @@
 import { useDispatch } from "react-redux";
 import { IMG_URL } from "../utlities/constants";
 import { addItems } from "../utlities/CartSlice/cartSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MenuList = ({ itemCards }) => {
   const dispatch = useDispatch();
   const handleClick = (item) => {
     dispatch(addItems(item));
   };
-  console.log(itemCards);
+  // console.log(itemCards);
+  const notify = () => {
+    toast.success("🎉 Item added successfully!", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   return (
     <>
       <div className="w-7/12 mx-auto h-full">
@@ -44,14 +58,14 @@ const MenuList = ({ itemCards }) => {
               <div className="w-3/5 h-full  flex justify-end p-2 relative ">
                 <div className="w-2/4 h-full p-2 flex justify-center items-start">
                   <div
-                    className="px-7 py-1  absolute bottom-0 rounded-md bg-white shadow-md z-10"
-                    onClick={() => handleClick(item)}
+                    className="px-7 py-1  absolute bottom-0 rounded-md bg-white shadow-md z-10 cursor-pointer"
+                    onClick={() => handleClick(item) ?? notify()}
                   >
                     <button className="w-full h-full">Add</button>
                   </div>
                   <div className="w-full h-[90px] ">
                     <img
-                      className="w-full h-full"
+                      className="w-full h-full rounded-md brightness-120"
                       src={
                         item?.card?.info?.imageId === undefined
                           ? "https://st4.depositphotos.com/7819052/21803/v/450/depositphotos_218033152-stock-illustration-grunge-red-available-word-rubber.jpg"
@@ -68,6 +82,7 @@ const MenuList = ({ itemCards }) => {
           </div>
         ))}
       </div>
+      <ToastContainer />
     </>
   );
 };

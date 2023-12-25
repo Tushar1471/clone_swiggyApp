@@ -17,7 +17,7 @@ const OverLay = ({ open, setOpen }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-hidden">
@@ -55,7 +55,7 @@ const OverLay = ({ open, setOpen }) => {
                       </button>
                     </div>
                   </Transition.Child>
-                  <div className="flex h-full flex-col overflow-y-scroll bg-slate-100 py-16 shadow-xl font-sans">
+                  <div className="flex h-full flex-col overflow-y-scroll bg-slate-50 py-16 shadow-xl font-sans">
                     <div className="px-4 sm:px-6">
                       <div className="w-full h-full">
                         <div className="w-full h-36 flex justify-between items-center ">

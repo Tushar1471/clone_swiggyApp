@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestuarantMenu from "../utlities/Custom_hooks/useRestuarantMenu";
 import RestuarantAcc from "../Accordians/RestuarantAcc";
+import ResMenuShimmer from "../layouts/ResMenuShimmer/ResMenuShimmer";
 
 const RestaurantsMenu = () => {
   const [showIndex, setShowIndex] = useState(null);
   const { resId } = useParams();
   const resMenuData = useRestuarantMenu(resId);
-  // console.log(resMenuData);
-  if (!resMenuData) return <h2>Loading</h2>;
+
+  if (!resMenuData) return <ResMenuShimmer />;
 
   const resMenuFirst = resMenuData.cards[0].card.card;
   const {
@@ -50,8 +51,6 @@ const RestaurantsMenu = () => {
         </div>
         <div className="mt-5">
           {categories.map((c, index) => (
-            // Lifting State up
-            // controlled component
             <RestuarantAcc
               key={c?.card?.card?.title}
               data={c?.card?.card}
@@ -64,7 +63,7 @@ const RestaurantsMenu = () => {
         </div>
       </div>
       <div className="w-full h-10 fixed bottom-12 flex justify-center">
-        <button className="px-3 py-2 bg-indigo-600 text-sm font-semibold text-white flex rounded-[100vh]">
+        <button className="px-3 py-2 bg-sky-400 text-sm font-semibold text-white flex rounded-[100vh] shadow-lg">
           <span className="material-symbols-outlined text-sm">restaurant</span>
           <span>BROWSER MENU</span>
         </button>

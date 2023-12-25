@@ -6,6 +6,7 @@ const bannerSlice = createSlice({
     initialState: {
         nowGetData: null,
         popularCuisines: null,
+        cart: null,
     },
     reducers: {
         addBannerItems: (state, action) => {
@@ -13,9 +14,12 @@ const bannerSlice = createSlice({
         },
         addCuisines: (state, action) => {
             state.popularCuisines = action.payload;
+        },
+        addCart: (state, action) => {
+            state.cart = action.payload;
         }
     }
 })
 
-export const { addBannerItems, addCuisines } = bannerSlice.actions;
+export const { addBannerItems, addCuisines, addCart } = bannerSlice.actions;
 export default bannerSlice.reducer;

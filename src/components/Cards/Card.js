@@ -8,6 +8,7 @@ const Card = ({ resData }) => {
     sla,
     aggregatedDiscountInfoV3,
   } = resData.info;
+  // console.log(resData);
   return (
     <>
       <div data-testid="custom-element" className=" p-2 ml-1 text-slate-800">
@@ -61,7 +62,7 @@ export const BestSeller = (Card) => {
     return (
       <>
         <div>
-          <label className=" absolute p-1 ml-3 mt-4 bg-black rounded-l-md rounded-r-[50vh] opacity-80 shadow-2xl text-indigo-100 z-20 font-sans">
+          <label className=" absolute p-1 ml-3 mt-4 bg-slate-900 rounded-l-md rounded-r-[50vh] opacity-80 shadow-2xl text-indigo-100 z-20 font-sans">
             BestSeller
           </label>
           <Card {...props} />

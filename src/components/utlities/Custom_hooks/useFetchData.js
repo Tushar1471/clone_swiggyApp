@@ -1,19 +1,23 @@
 import { useEffect } from "react";
-// import { RES_URL } from "../constants"
+import { RES_URL } from "../constants.js"
 import { useDispatch } from "react-redux";
 import { addBannerItems } from "../bannerSlice";
-// import { useState } from "react";
-export const useFetchData = (URL) => {
+import { useState } from "react";
+// import { useSelector } from "react-redux";
+export const useFetchData = () => {
     const dispatch = useDispatch();
+    const [data, setData] = useState(null);
+    // const store = useSelector(store => store.cards.nowGetData);
     const fetchData = async() => {
-        const data = await fetch(URL);
+        const data = await fetch(RES_URL);
         const getData = await data.json();
         const newData = await getData.data;
-        // console.log(newData);
+        setData(newData);
         dispatch(addBannerItems(await newData));
 
     }
     useEffect(() => {
-        fetchData();
+        !data && fetchData();
     }, []);
+    return data;
 }

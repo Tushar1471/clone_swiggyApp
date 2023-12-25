@@ -3,9 +3,24 @@ import { useSearchCuis } from "../utlities/Custom_hooks/useSearchCuis";
 import { CAROUSEL_URL } from "../utlities/constants.js";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useFetchData } from "../utlities/Custom_hooks/useFetchData";
 const Search = () => {
   const [display, setDisplay] = useState(true);
+  const [filteredItem, setFilteredItem] = useState([]);
+  const data = useFetchData();
   useSearchCuis();
+  const filterItems =
+    data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants &&
+    data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+  function getFilterElements(e) {
+    const data = filterItems.filter((item) =>
+      item.info.name.includes(e.charAt(0).toUpperCase() + e.slice(1))
+        ? item
+        : null
+    );
+    setFilteredItem(data);
+  }
   const items = useSelector(
     (store) =>
       store?.cards?.popularCuisines?.data?.cards[1]?.card?.card?.imageGridCards
@@ -23,7 +38,9 @@ const Search = () => {
                 name="Text"
                 placeholder="Search for restuarants and foods"
                 onInput={(e) =>
-                  e.target.value === "" ? setDisplay(true) : setDisplay(false)
+                  e.target.value === ""
+                    ? setDisplay(true)
+                    : getFilterElements(e.target.value) ?? setDisplay(false)
                 }
               />
               {display ? (
@@ -44,10 +61,7 @@ const Search = () => {
                 <div className="w-full h-40 mt-4 overflow-x-scroll flex flex-wrap flex-col hustle">
                   {items &&
                     items.map((item) => (
-                      <div
-                        key={item.id}
-                        className="w-2/12 h-full bg-slate-500 mr-1"
-                      >
+                      <div key={item.imageId} className="w-2/12 h-full mr-1">
                         <img
                           className="w-full h-full"
                           src={CAROUSEL_URL + item.imageId}
@@ -59,8 +73,25 @@ const Search = () => {
               </div>
             )}
             {!display && (
-              <div className="w-full h-full mt-1">
-                <div className="w-full h-16 border-b-2 transition ease-in  hover:bg-slate-300"></div>
+              <div className="w-full h-full mt-3 cursor-pointer">
+                {filteredItem.map((item) => (
+                  <div className="w-full h-[70px]  transition ease-in rounded-md  hover:bg-slate-200  flex justify-between items-center">
+                    <img
+                      className="w-14 h-14 rounded-md"
+                      src={
+                        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+                        item.info.cloudinaryImageId
+                      }
+                      alt="Random"
+                    />
+                    <div className="w-10/12 h-14 mr-12 text-slate-700 font-sans">
+                      <h1 className="text-xl font-semibold">
+                        {item.info.name}
+                      </h1>
+                      <p className="text-sm">{item.info.cuisines.join(",")}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
           </div>

@@ -6,11 +6,12 @@ import OverLay from "../OverLay";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  // const [display, setDisplay] = useState(false);
   const cart = useSelector((store) => store.cart.items);
   return (
     <>
       <div className=" w-full h-20 flex justify-center items-center fixed top-0 bg-white z-30 shadow-md font-sans">
-        <div className=" w-full flex justify-around items-center p-2">
+        <div className=" w-full flex justify-around items-center p-2 text-sm">
           <div className="w-4/12 flex justify-evenly items-center">
             <div className="w-8">
               <Link to="/">
@@ -44,7 +45,7 @@ const Header = () => {
                 className="hover:text-orange-500 transition ease-in-out delay-50"
               >
                 <li className="flex items-center">
-                  <span className="material-symbols-outlined mr-1.5">
+                  <span className="material-symbols-outlined mr-1.5 ">
                     search
                   </span>
                   Search
@@ -79,8 +80,8 @@ const Header = () => {
                     shopping_cart
                   </span>
                   Cart
-                  <sup data-testid="len" className="font-bold text-xl">
-                    {cart.length}
+                  <sup data-testid="len" className="font-bold text-sm">
+                    {cart.length > 0 && cart.length}
                   </sup>
                 </li>
               </Link>
