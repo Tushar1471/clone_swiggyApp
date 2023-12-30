@@ -6,7 +6,6 @@ import OverLay from "../OverLay";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  // const [display, setDisplay] = useState(false);
   const cart = useSelector((store) => store.cart.items);
   return (
     <>

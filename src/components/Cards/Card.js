@@ -8,7 +8,6 @@ const Card = ({ resData }) => {
     sla,
     aggregatedDiscountInfoV3,
   } = resData.info;
-  // console.log(resData);
   return (
     <>
       <div data-testid="custom-element" className=" p-2 ml-1 text-slate-800">

@@ -9,7 +9,6 @@ const MenuList = ({ itemCards }) => {
   const handleClick = (item) => {
     dispatch(addItems(item));
   };
-  // console.log(itemCards);
   const notify = () => {
     toast.success("🎉 Item added successfully!", {
       position: "bottom-right",
@@ -28,7 +27,7 @@ const MenuList = ({ itemCards }) => {
         {itemCards.map((item) => (
           <div key={item.card.info.id}>
             <div
-              className="w-full h-full mb-2 flex justify-center items-center mt-4"
+              className="w-full h-full mb-2 flex justify-center items-center mt-6"
               data-testid="foodItems"
             >
               <div className="w-full p-2 flex  items-center">
@@ -38,7 +37,7 @@ const MenuList = ({ itemCards }) => {
                       src={
                         item?.card?.info?.itemAttribute?.vegClassifier === "VEG"
                           ? "https://logodix.com/logo/2088733.png"
-                          : "https://www.pinclipart.com/picdir/big/419-4194820_veg-icon-png-non-veg-logo-png-clipart.png"
+                          : "https://th.bing.com/th/id/OIP.kKp1GL_nt0Rw9xR8lyjlWAAAAA?w=320&h=320&rs=1&pid=ImgDetMain"
                       }
                       className="w-full h-full"
                       alt="Veg"

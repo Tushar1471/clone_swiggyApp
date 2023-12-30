@@ -11,14 +11,15 @@
   .hustle::-webkit-scrollbar-thumb {
     width: 2px;
     height: 2px;
+    cursor: pointer;
     background-color: gray;
   }
 }
 
 .bd {
-  border-top: 4px solid white;
-  border-bottom: 4px solid white;
-  border-right: 4px solid white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
   border-radius: 100%;
   animation: loading 1s linear infinite;
 }

@@ -3,7 +3,7 @@ import { IMG_URL } from "../utlities/constants.js";
 const ScrollBarMenu = ({ imageId }) => {
   return (
     <>
-      <div className="w-1/9 h-full mx-2 cursor-pointer">
+      <div className="w-11/12 h-full mx-2 cursor-pointer bg-green-400">
         <img
           className="w-full h-full"
           src={

@@ -24,7 +24,7 @@ const BodyLayout = () => {
         <div className="w-4/5 h-full mx-auto pt-10 pb-10 mt-16">
           {bannerData && (
             <div className="w-full h-full mx-auto p-2 mb-2">
-              <h1 className=" text-2xl font-sans font-bold mb-5">
+              <h1 className=" text-2xl font-sans font-bold mb-5 ml-2">
                 Best offers for you
               </h1>
               <div className="w-full h-64 flex flex-wrap overflow-x-scroll hustle">
@@ -45,10 +45,10 @@ const BodyLayout = () => {
             </div>
           )}
           <div className="w-full h-full mx-auto p-2 mb-2">
-            <h1 className="text-gray-800 text-2xl font-sans font-bold mb-5">
+            <h1 className="text-gray-800 text-2xl font-sans font-bold mb-4 ">
               {imgData && header}
             </h1>
-            <div className="w-full h-48 p-2 flex flex-wrap flex-col overflow-x-scroll overflow-y-hidden hustle">
+            <div className="w-full h-48 p-1 flex flex-wrap flex-col overflow-x-scroll overflow-y-hidden hustle">
               {menuCard &&
                 menuCard.map((item) => (
                   <Link
@@ -64,7 +64,7 @@ const BodyLayout = () => {
           </div>
           <hr />
           <br />
-          <h1 className="text-gray-800 text-2xl font-sans font-bold mb-5">
+          <h1 className="text-gray-800 text-2xl font-sans font-bold mb-5 ml-2">
             Top Restuarants Chains in Delhi
           </h1>
           <div className="w-full flex flex-wrap justify-between items-center">
@@ -86,7 +86,7 @@ const BodyLayout = () => {
           </div>
           <hr />
           <br />
-          <h1 className="text-gray-800 text-2xl font-sans font-bold mb-5">
+          <h1 className="text-gray-800 text-2xl font-sans font-bold mb-5 ml-2">
             Restaurants with online food delivery in Delhi
           </h1>
           <div className="w-full flex flex-wrap justify-between items-center">

@@ -4,6 +4,7 @@ import { CAROUSEL_URL } from "../utlities/constants.js";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useFetchData } from "../utlities/Custom_hooks/useFetchData";
+import { Link } from "react-router-dom";
 const Search = () => {
   const [display, setDisplay] = useState(true);
   const [filteredItem, setFilteredItem] = useState([]);
@@ -61,13 +62,13 @@ const Search = () => {
                 <div className="w-full h-40 mt-4 overflow-x-scroll flex flex-wrap flex-col hustle">
                   {items &&
                     items.map((item) => (
-                      <div key={item.imageId} className="w-2/12 h-full mr-1">
+                      <Link key={item.imageId} className="w-2/12 h-full mr-1">
                         <img
                           className="w-full h-full"
                           src={CAROUSEL_URL + item.imageId}
                           alt="Random"
                         />
-                      </div>
+                      </Link>
                     ))}
                 </div>
               </div>
@@ -75,7 +76,11 @@ const Search = () => {
             {!display && (
               <div className="w-full h-full mt-3 cursor-pointer">
                 {filteredItem.map((item) => (
-                  <div className="w-full h-[70px]  transition ease-in rounded-md  hover:bg-slate-200  flex justify-between items-center">
+                  <Link
+                    className="w-full h-[70px]  transition ease-in rounded-md  hover:bg-slate-200  flex justify-between items-center"
+                    to={"/restuarants/" + item.info.id}
+                    key={item.info.id}
+                  >
                     <img
                       className="w-14 h-14 rounded-md"
                       src={
@@ -90,7 +95,7 @@ const Search = () => {
                       </h1>
                       <p className="text-sm">{item.info.cuisines.join(",")}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             )}

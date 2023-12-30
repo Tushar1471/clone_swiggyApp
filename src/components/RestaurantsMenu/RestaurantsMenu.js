@@ -6,6 +6,8 @@ import ResMenuShimmer from "../layouts/ResMenuShimmer/ResMenuShimmer";
 
 const RestaurantsMenu = () => {
   const [showIndex, setShowIndex] = useState(null);
+  const [display, setDisplay] = useState(false);
+  // const [handleIndex,setHandleIndex] = useState()
   const { resId } = useParams();
   const resMenuData = useRestuarantMenu(resId);
 
@@ -29,7 +31,37 @@ const RestaurantsMenu = () => {
   );
   return (
     <>
-      <div className=" mt-28">
+      <div className="mt-24">
+        {display && (
+          <div>
+            <div
+              className="w-full h-screen bg-black fixed top-0 bottom-0 left-0 right-0 opacity-60 cursor-pointer z-30"
+              onClick={() => setDisplay(false)}
+            ></div>
+            <div className="w-4/12 h-60 shadow-xl bg-white fixed bottom-12 left-0 right-0 z-50 mx-auto rounded-md overflow-y-scroll cursor-pointer">
+              {categories.map((item) => (
+                <div
+                  key={item?.card?.card?.title}
+                  className="px-4 py-1 text-lg text-slate-950"
+                >
+                  <button
+                    onClick={(e) =>
+                      categories.filter((item, index) =>
+                        item?.card?.card?.title === e.target.textContent
+                          ? setShowIndex(index) ?? setDisplay(false)
+                          : null
+                      )
+                    }
+                    className=" w-full flex justify-between items-center p-2 "
+                  >
+                    <span>{item?.card?.card?.title}</span>
+                    <span>{item?.card?.card?.itemCards.length}</span>
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="w-7/12 h-24 mx-auto flex justify-between p-3">
           <div className="w-8/12 h-full flex flex-col justify-between">
             <p className="text-slate-900 text-2xl font-bold ">{name}</p>
@@ -49,7 +81,7 @@ const RestaurantsMenu = () => {
             </div>
           </div>
         </div>
-        <div className="mt-5">
+        <div className="mt-5  ">
           {categories.map((c, index) => (
             <RestuarantAcc
               key={c?.card?.card?.title}
@@ -63,7 +95,10 @@ const RestaurantsMenu = () => {
         </div>
       </div>
       <div className="w-full h-10 fixed bottom-12 flex justify-center">
-        <button className="px-3 py-2 bg-sky-400 text-sm font-semibold text-white flex rounded-[100vh] shadow-lg">
+        <button
+          className="px-3 py-2 bg-sky-400 text-sm font-semibold text-white flex rounded-[100vh] shadow-lg"
+          onClick={() => setDisplay(true)}
+        >
           <span className="material-symbols-outlined text-sm">restaurant</span>
           <span>BROWSER MENU</span>
         </button>

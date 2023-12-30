@@ -4,7 +4,7 @@ const Shimmer = () => {
   return (
     <>
       <div className="w-full h-screen fixed top-0 bottom-0 left-0 right-0">
-        <div className="w-full h-[60%] bg-indigo-950 flex justify-center items-end">
+        <div className="w-full h-[60%] bg-black flex justify-center items-end">
           <div className="w-6/12 h-52">
             <div className="w-full h-24 ">
               <div className="w-24 h-full mx-auto bd flex justify-center items-center"></div>

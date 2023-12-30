@@ -1,5 +1,4 @@
 import React from "react";
-// import { useParams } from "react-router-dom";
 import { useLocation, useParams } from "react-router-dom";
 import { useCollDb } from "../../utlities/Custom_hooks/CollectionDb/useCollDb";
 import Shimmer from "../ShimmerColl.js/Shimmer";
